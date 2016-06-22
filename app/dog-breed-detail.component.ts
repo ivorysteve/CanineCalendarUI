@@ -40,7 +40,7 @@ export class DogBreedDetailComponent implements OnInit
           .then(breed => this.breed = breed);
     } else {
       this.navigated = false;
-      this.breed = new DogBreed();
+      this.breed = new DogBreed( -1, "", "");
     }
   }
 

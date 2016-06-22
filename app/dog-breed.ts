@@ -1,7 +1,11 @@
 
-export class DogBreed {
-  id: number;
-  name: string;
-  size: string;
+export class DogBreed 
+{
+  constructor(
+    public id: number,
+    public name: string,
+    public size: string
+  )  { }
+
 }
 

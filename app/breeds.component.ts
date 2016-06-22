@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 
+import { Dog } from './dog';
+import { DogFormComponent } from './dog-form.component';
 import { DogBreed } from './dog-breed';
 import { DogBreedService } from './dog-breed.service';
 import { DogBreedDetailComponent } from './dog-breed-detail.component';
@@ -10,7 +12,7 @@ import { DogBreedDetailComponent } from './dog-breed-detail.component';
   selector: 'my-breeds',
   templateUrl: 'app/breeds.component.html',
   styleUrls:  ['app/heroes.component.css'],
-  directives: [DogBreedDetailComponent]
+  directives: [DogBreedDetailComponent, DogFormComponent]
 
 })
 
