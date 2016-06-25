@@ -12,7 +12,7 @@ import { AppComponent }   from './app.component';
 
 bootstrap(AppComponent, [
     HTTP_PROVIDERS,
-    { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
-    { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
+    // { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
+    // { provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
 ]);
 

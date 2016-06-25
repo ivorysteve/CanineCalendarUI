@@ -3,6 +3,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 import { Router } from '@angular/router-deprecated';
 
 import { HeroService }     from './hero.service';
+import { DogFormComponent }     from './dog-form.component';
 import { DogBreedService }     from './dog-breed.service';
 import { DashboardComponent }     from './dashboard.component';
 import { HeroesComponent } from './heroes.component';
@@ -17,6 +18,7 @@ import { HeroDetailComponent } from './hero-detail.component';
       <a [routerLink]="['Dashboard']">Dashboard</a>
       <a [routerLink]="['Heroes']">Heroes</a>
       <a [routerLink]="['Breeds']">Dog Breeds</a>
+      <a [routerLink]="['DogNew']">Dogs</a>
     </nav>
     <router-outlet></router-outlet>
   `,
@@ -51,10 +53,15 @@ import { HeroDetailComponent } from './hero-detail.component';
     name: 'Breeds',
     component: BreedsComponent
   },
+  {
+    path: '/dog/new',
+    name: 'DogNew',
+    component: DogFormComponent
+  }
 
 ])
 
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'Canine Calendar';
 }
 

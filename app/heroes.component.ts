@@ -3,7 +3,6 @@ import { OnInit } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 
 import { Hero } from './hero';
-import { DogBreed } from './dog-breed';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService }     from './hero.service';
 
@@ -19,7 +18,6 @@ export class HeroesComponent implements OnInit {
 
   title = 'Tour of Heroes';
   heroes: Hero[];
-  breeds: DogBreed[];
   selectedHero: Hero;
   addingHero = false;
   error: any;

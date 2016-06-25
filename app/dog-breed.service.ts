@@ -1,26 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { Observable }     from 'rxjs/Observable';
 
 import { BREEDS } from './mock-dog-breeds';
 import { DogBreed } from './dog-breed';
+import { HOST_URL } from './host-config';
 
 @Injectable()
 export class DogBreedService 
 {
-  private breedsUrl = 'app/breeds';  // URL to web api
+  private breedsUrl = HOST_URL + '/breeds/';  // URL to web api
 
   constructor(private http: Http) { }
 
   getDogBreeds(): Promise<DogBreed[]> 
   {
-    return Promise.resolve(BREEDS);
-/**
-    return this.http.get(this.breedsUrl)
+    let headers = new Headers({'Accept': 'application/json'});
+    return this.http.get(this.breedsUrl, {headers: headers})
                .toPromise()
-               .then(response => response.json().data)
+               .then(this.extractData)
                .catch(this.handleError);
-**/
+
+  }
+
+  private extractData(res: Response) 
+  {
+    let body = res.json();
+    return body || { };
   }
 
   // Get Breed by ID
