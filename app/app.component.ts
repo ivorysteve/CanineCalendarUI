@@ -8,6 +8,8 @@ import { DogBreedService }     from './dog-breed.service';
 import { DashboardComponent }     from './dashboard.component';
 import { HeroesComponent } from './heroes.component';
 import { BreedsComponent } from './breeds.component';
+import { ClientsComponent } from './clients.component';
+import { ClientService } from './client.service';
 import { HeroDetailComponent } from './hero-detail.component';
 
 @Component({
@@ -16,8 +18,8 @@ import { HeroDetailComponent } from './hero-detail.component';
     <h1>{{title}}</h1>
     <nav>
       <a [routerLink]="['Dashboard']">Dashboard</a>
-      <a [routerLink]="['Heroes']">Heroes</a>
       <a [routerLink]="['Breeds']">Dog Breeds</a>
+      <a [routerLink]="['Clients']">Clients</a>
       <a [routerLink]="['DogNew']">Dogs</a>
     </nav>
     <router-outlet></router-outlet>
@@ -27,6 +29,7 @@ import { HeroDetailComponent } from './hero-detail.component';
   providers: [
     ROUTER_PROVIDERS,
     HeroService,
+    ClientService,
     DogBreedService,
   ]
 
@@ -42,6 +45,11 @@ import { HeroDetailComponent } from './hero-detail.component';
     path: '/heroes',
     name: 'Heroes',
     component: HeroesComponent
+  },
+  {
+    path: '/clients',
+    name: 'Clients',
+    component: ClientsComponent
   },
   {
     path: '/detail/:id',
