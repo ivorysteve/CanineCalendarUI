@@ -4,7 +4,7 @@
       <li *ngFor="let breed of breeds"
         [class.selected]="breed === selectedBreed"
         (click)="onSelect(breed)">
-        <span class="badge">{{breed.id}}</span> {{breed.name}}
+        <span class="badge">{{breed.id}}</span> {{breed.name}} ({{breed.breedSize}})
         <button class="delete-button" (click)="delete(breed, $event)">Delete</button>
       </li>
     </ul>
@@ -16,7 +16,7 @@
 
     <div *ngIf="selectedBreed">
       <h2>
-        {{selectedBreed.name | uppercase}} is my hero
+        {{selectedBreed.name | uppercase}} is my fave breed!
       </h2>
       <button (click)="gotoDetail()">View Details</button>
     </div>
@@ -26,8 +26,8 @@
       <option *ngFor="let breed of breeds"
        [class.selected]="breed === selectedBreed"
        (click)="onSelect(breed)">
-        <span class="badge">{{breed.id}}</span> {{breed.name}}
+        <span class="badge">{{breed.id}}</span> {{breed.name}} ({{breed.breedSize}})
       </option>
     </select>
 
-    <dog-form></dog-form>
+

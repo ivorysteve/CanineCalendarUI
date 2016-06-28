@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Dog } from './dog';
 import { DogBreedService } from './dog-breed.service';
+import { DogService } from './dog.service';
 
 @Component({
   selector: 'my-dashboard',
@@ -13,21 +13,21 @@ import { DogBreedService } from './dog-breed.service';
 
 export class DashboardComponent implements OnInit 
 {
-  heroes: Hero[] = [];
+  dogs: Dog[] = [];
 
   constructor(
     private router: Router,
     private dogBreedService: DogBreedService,
-    private heroService: HeroService) {
+    private dogService: DogService) {
   }
 
   ngOnInit() {
-    this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes.slice(1, 5));
+    this.dogService.getDogs()
+      .then(dogs => this.dogs = dogs.slice(0, 5));
   }
 
-  gotoDetail(hero: Hero) {
-    let link = ['HeroDetail', { id: hero.id }];
+  gotoDetail(dog: Dog) {
+    let link = ['DogDetail', { id: dog.id }];
     this.router.navigate(link);
   }
 }

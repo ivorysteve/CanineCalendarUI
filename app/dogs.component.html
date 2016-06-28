@@ -1,0 +1,24 @@
+    <h1>{{title}}</h1>
+    <h2>Our Dogs</h2>
+    <ul class="heroes">
+      <li *ngFor="let dog of dogs"
+        [class.selected]="dog === selectedDog"
+        (click)="onSelect(dog)">
+        <span class="badge">{{dog.id}}</span> {{dog.name}} 
+        <button class="delete-button" (click)="delete(dog, $event)">Delete</button>
+      </li>
+    </ul>
+
+    <button (click)="addDog()">Add New Dog</button>
+    <div *ngIf="addingDog">
+      <my-dog-detail (close)="close($event)"></my-dog-detail>
+    </div>
+
+    <div *ngIf="selectedDog">
+      <h2>
+        {{selectedDog.name | uppercase}} is my fave dog!
+      </h2>
+      <button (click)="gotoDetail()">View Details</button>
+    </div>
+
+

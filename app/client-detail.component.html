@@ -1,0 +1,29 @@
+<div *ngIf="client" >
+  <h2>{{client.name}} details!</h2>
+  <div>
+    <label>id: </label>{{client.id}}
+  </div>
+  <div>
+    <label>Client Organization Name: </label>
+    <input [(ngModel)]="client.name" placeholder="name"  type="text" class="form-control" required  />
+  </div>
+  <div  class="form-group">
+    <label>Client Contact: </label><br/>
+    <input [(ngModel)]="client.contactInfo.firstName" placeholder="fname" type="text" class="form-control" required />
+    <input [(ngModel)]="client.contactInfo.lastName" placeholder="lname" type="text" class="form-control" required />
+  </div>
+  <div  class="form-group">
+    <label>Address: </label><br/>
+    <label>Street:</label>
+    <input [(ngModel)]="client.contactInfo.street1" placeholder="street1" type="text" class="form-control" required /><br/>
+    <input [(ngModel)]="client.contactInfo.street2" placeholder="street2" type="text" class="form-control" /><br/>
+    <label>City:</label>
+    <input [(ngModel)]="client.contactInfo.city" placeholder="city" type="text" class="form-control" /><br/>
+    <label>State:</label>
+    <input [(ngModel)]="client.contactInfo.state" placeholder="state" type="text" class="form-control"  /><br/>
+    <label>Zip:</label>
+    <input [(ngModel)]="client.contactInfo.zip" placeholder="zip" type="text" class="form-control"  /><br/>
+  </div>
+  <button (click)="goBack()">Back</button>
+</div>
+

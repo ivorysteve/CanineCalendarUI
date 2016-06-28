@@ -2,15 +2,19 @@ import { Component }       from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { Router } from '@angular/router-deprecated';
 
-import { HeroService }     from './hero.service';
-import { DogFormComponent }     from './dog-form.component';
-import { DogBreedService }     from './dog-breed.service';
 import { DashboardComponent }     from './dashboard.component';
-import { HeroesComponent } from './heroes.component';
+import { DogFormComponent }     from './dog-form.component';
+import { DogService }     from './dog.service';
+import { DogsComponent }     from './dogs.component';
 import { BreedsComponent } from './breeds.component';
+import { DogBreedService }     from './dog-breed.service';
 import { ClientsComponent } from './clients.component';
+import { ClientDetailComponent } from './client-detail.component';
 import { ClientService } from './client.service';
-import { HeroDetailComponent } from './hero-detail.component';
+
+import { HeroService }     from './hero/hero.service';
+import { HeroesComponent } from './hero/heroes.component';
+import { HeroDetailComponent } from './hero/hero-detail.component';
 
 @Component({
   selector: 'my-app',
@@ -20,7 +24,7 @@ import { HeroDetailComponent } from './hero-detail.component';
       <a [routerLink]="['Dashboard']">Dashboard</a>
       <a [routerLink]="['Breeds']">Dog Breeds</a>
       <a [routerLink]="['Clients']">Clients</a>
-      <a [routerLink]="['DogNew']">Dogs</a>
+      <a [routerLink]="['Dogs']">Dogs</a>
     </nav>
     <router-outlet></router-outlet>
   `,
@@ -31,6 +35,7 @@ import { HeroDetailComponent } from './hero-detail.component';
     HeroService,
     ClientService,
     DogBreedService,
+    DogService,
   ]
 
 })
@@ -57,9 +62,19 @@ import { HeroDetailComponent } from './hero-detail.component';
     component: HeroDetailComponent
   },
   {
+    path: '/client/:id',
+    name: 'ClientDetail',
+    component: ClientDetailComponent
+  },
+  {
     path: '/breeds',
     name: 'Breeds',
     component: BreedsComponent
+  },
+  {
+    path: '/dogs',
+    name: 'Dogs',
+    component: DogsComponent
   },
   {
     path: '/dog/new',

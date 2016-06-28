@@ -1,0 +1,24 @@
+    <h1>{{title}}</h1>
+    <h2>Visit Clients</h2>
+    <ul class="heroes">
+      <li *ngFor="let client of clients"
+        [class.selected]="client === selectedClient"
+        (click)="onSelect(client)">
+        <span class="badge">{{client.id}}</span> {{client.name}} 
+        <button class="delete-button" (click)="delete(client, $event)">Delete</button>
+      </li>
+    </ul>
+
+    <button (click)="addClient()">Add New Client</button>
+    <div *ngIf="addingClient">
+      <my-client-detail (close)="close($event)"></my-client-detail>
+    </div>
+
+    <div *ngIf="selectedClient">
+      <h2>
+        {{selectedClient.name | uppercase}} is my fave client!
+      </h2>
+      <button (click)="gotoDetail()">View Details</button>
+    </div>
+
+

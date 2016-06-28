@@ -3,13 +3,13 @@ import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Client } from './client';
-import { HOST_URL } from './host-config';
+import * as config from './host-config';
 
 @Injectable()
 export class ClientService 
 {
 
-  private clientsUrl = HOST_URL + '/clients/';  // URL to web api
+  private clientsUrl = config.getHostUrl('/clients/');  // URL to web api
 
   constructor(private http: Http) { }
 
@@ -48,7 +48,7 @@ export class ClientService
   // Add new Client
   private post(client: Client): Promise<Client> 
   {
-    let headers = this.createJsonContentHeader() ;
+    let headers = config.createJsonContentHeader() ;
 
     return this.http
                .post(this.clientsUrl, JSON.stringify(client), {headers: headers})
